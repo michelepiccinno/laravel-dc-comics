@@ -1,7 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ComicController;
+use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,5 +14,17 @@ use App\Http\Controllers\ComicController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+/*
+  * stampa dati grezzi CON VAR_DUMP
+  *//*
 Route::get('/', [ComicController::class, "index"])->name("home");
+*/
+
+
+/*
+**rotta per CRUD list
+*/
+Route::resource("/", ComicController::class); 
+
+
+

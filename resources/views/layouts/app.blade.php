@@ -9,8 +9,8 @@
 </head>
 <body>
 
-    @include('partials.header')
-    
+  {{--  @include('partials.header')  --}}
+   PROVIENE DA  <h1>app.blade.php</h1>
     @yield("content")
 
 </body>
