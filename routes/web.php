@@ -24,7 +24,7 @@ Route::get('/', [ComicController::class, "index"])->name("home");
 /*
 **rotta per CRUD list
 */
-Route::resource("/", ComicController::class); 
+Route::resource("comics", ComicController::class); 
 
 
 
