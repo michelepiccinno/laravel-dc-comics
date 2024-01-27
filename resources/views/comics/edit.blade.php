@@ -9,11 +9,10 @@
             <form action="{{ route('comics.update', $comic->id) }}" method="POST">
                 @csrf
                 @method('PUT')
-            
+
                 <div class="mb-3">
                     <label for="title" class="form-label">title</label>
-                    <input type="text" class="form-control" id="title" name="title"
-                        value="{{ $comic->title }}">
+                    <input type="text" class="form-control" id="title" name="title" value="{{ $comic->title }}">
                 </div>
                 <div class="mb-3">
                     <label for="description" class="form-label">description</label>
@@ -30,12 +29,12 @@
                 </div>
                 <div class="mb-3">
                     <label for="series" class="form-label">series</label>
-                    <input type="text" class="form-control" id="series" name="series"
-                        value="{{ $comic->series }}">
+                    <input type="text" class="form-control" id="series" name="series" value="{{ $comic->series }}">
                 </div>
                 <div class="mb-3">
                     <label for="sale_date" class="form-label">sale_date</label>
-                    <input type="text" class="form-control" id="sale_date" name="sale_date" value="{{ $comic->sale_date }}">
+                    <input type="text" class="form-control" id="sale_date" name="sale_date"
+                        value="{{ $comic->sale_date }}">
                 </div>
                 <button type="submit" class="btn btn-primary">Modifica</button>
             </form>

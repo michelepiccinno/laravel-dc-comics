@@ -9,7 +9,7 @@ class Comic extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
+    protected $fillable /*da utilizzare se uno dei campi del form è DISABLED*/ = [
         "title",
         "description",
         "thumb",
