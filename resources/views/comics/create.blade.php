@@ -8,7 +8,7 @@
         <div class="row">
             <form action="{{ route('comics.store') }}" method="POST">
                 @csrf
-                {{-- title description type image cooking_time weight --}}
+              
                 <div class="mb-3">
                     <label for="title" class="form-label">title</label>
                     <input type="text" class="form-control" id="title" name="title">

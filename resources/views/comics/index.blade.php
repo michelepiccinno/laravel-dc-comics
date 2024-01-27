@@ -19,11 +19,17 @@ var_dump($books);
             <li>{{ $book['sale_date'] }}</li> <br><br>
             <li>{{ $book['type'] }}</li> <br><br>
     </ul>
+    
+    <form action="{{ route('comics.destroy', $book->id) }}" method="POST" class="d-inline-block">
+        @csrf
+        @method('DELETE')
+        <input type="submit" value="Cancella" class="btn btn-danger">
+    </form>
 
     <div class="border">
-      <h4>ROTTA SHOW (VISUALIZZA title e description)</h4>
-      <a href="{{ route('comics.show', $book->id) }}">Dettagli</a>
-    </div>
-    
+        <h4>ROTTA SHOW (VISUALIZZA title e description)</h4>
+        <a href="{{ route('comics.show', $book->id) }}">Dettagli</a>
+      </div>
+
     @endforeach
 @endsection

@@ -23,7 +23,7 @@ public function index() {
   public function index()
   {
     $books = Comic::all();
-    return view("comics.index", compact("books")); 
+    return view("comics.index", compact("books"));
   }
 
 
@@ -35,37 +35,66 @@ public function index() {
   {
     return view("comics.show", compact("comic"));
   }
-  
-
- /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        return view("comics.create");
-    }
 
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        $data = $request->all();
+  /**
+   * Show the form for creating a new resource.
+   */
+  public function create()
+  {
+    return view("comics.create");
+  }
 
-        $book = new Comic();
-  
-        $book->title = $data['title'];
-        $book->description = $data['description'];
-        $book->thumb = $data['thumb'];
-        $book->price = $data['price'];
-        $book->series = $data['series'];
-        $book->sale_date = $data['sale_date'];
-        $book->type = $data['type'];
-        $book->save();
 
-      
-        return redirect()->route('comics.show', $book->id);
-    }
+  /**
+   * Store a newly created resource in storage.
+   */
+  public function store(Request $request)
+  {
+    $data = $request->all();
 
+    $book = new Comic();
+
+    $book->title = $data['title'];
+    $book->description = $data['description'];
+    $book->thumb = $data['thumb'];
+    $book->price = $data['price'];
+    $book->series = $data['series'];
+    $book->sale_date = $data['sale_date'];
+    $book->type = $data['type'];
+    $book->save();
+
+
+    return redirect()->route('comics.show', $book->id);
+  }
+
+
+  /**
+   * Show the form for editing the specified resource.
+   */
+  public function edit(Comic $comic)
+  {
+    return view("comics.edit", compact("comic"));
+  }
+
+
+  /**
+   * Update the specified resource in storage.
+   */
+  public function update(Request $request, Comic $comic)
+  {
+    $data = $request->all();
+    $comic->update($data);
+    return redirect()->route('comics.show', $comic->id);
+  }
+
+
+  /**
+   * Remove the specified resource from storage.
+   */
+  public function destroy(Comic $comic)
+  {
+    $comic->delete();
+    return redirect()->route('comics.index');
+  }
 }
