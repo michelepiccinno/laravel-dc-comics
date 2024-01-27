@@ -21,10 +21,17 @@ Route::get('/', [ComicController::class, "index"])->name("home");
 */
 
 
+Route::get('/', function () {
+    return redirect()->route('comics.index');
+})->name("home");;
+
 /*
-**rotta per CRUD list
+**rotta CRUD
 */
 Route::resource("comics", ComicController::class); 
+
+
+
 
 
 

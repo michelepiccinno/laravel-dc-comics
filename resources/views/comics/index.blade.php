@@ -19,5 +19,11 @@ var_dump($books);
             <li>{{ $book['sale_date'] }}</li> <br><br>
             <li>{{ $book['type'] }}</li> <br><br>
     </ul>
+
+    <div class="border">
+      <h4>ROTTA SHOW (VISUALIZZA title e description)</h4>
+      <a href="{{ route('comics.show', $book->id) }}">Dettagli</a>
+    </div>
+    
     @endforeach
 @endsection

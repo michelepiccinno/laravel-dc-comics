@@ -17,14 +17,25 @@ public function index() {
 } */
 
 
-/**
-* Display a listing of the resource.
-*/
-public function index() {
-  $books = Comic::all();
-  return view("comics.index", compact("books"));
-}
+  /**
+   * Display a listing of the resource.
+   */
+  public function index()
+  {
+    $books = Comic::all();
+    return view("comics.index", compact("books")); 
+  }
 
+
+  /**
+   * Display the specified resource.
+   */
+  //
+  public function show(Comic $comic) //CON dependecy injection la variabile dobbiamo chiamarla $comic (proprio come il modello Comic) , come anche specificato nelle route liest GET|HEAD        comics/{comic} ......................... comics.show. Anche in vista show useremo $comic
+  {
+    return view("comics.show", compact("comic"));
+  }
+  
 
 
 }
