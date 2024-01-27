@@ -37,5 +37,35 @@ public function index() {
   }
   
 
+ /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        return view("comics.create");
+    }
+
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        $data = $request->all();
+
+        $book = new Comic();
+  
+        $book->title = $data['title'];
+        $book->description = $data['description'];
+        $book->thumb = $data['thumb'];
+        $book->price = $data['price'];
+        $book->series = $data['series'];
+        $book->sale_date = $data['sale_date'];
+        $book->type = $data['type'];
+        $book->save();
+
+      
+        return redirect()->route('comics.show', $book->id);
+    }
 
 }

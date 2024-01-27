@@ -10,8 +10,8 @@ var_dump($books);
     <h3 class="border">Display a listing of the resource.</h3>
     <ul>
         @foreach ($books as $book)
+            <li>{{ $book['id'] }}</li> <br><br>
             <li>{{ $book['title'] }}</li> <br><br>
-            <li>{{ $book['description'] }}</li> <br><br>
             <li>{{ $book['description'] }}</li> <br><br>
             <li>{{ $book['thumb'] }}</li> <br><br>
             <li>{{ $book['price'] }}</li> <br><br>
