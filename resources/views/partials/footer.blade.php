@@ -1,4 +1,4 @@
-  <div class="img-links ">
+  <div class="img-links mt-5">
       <div class="container d-flex justify-content-between ps-5 pe-5 ps-1 pb-1 ">
           <div class="d-flex align-items-center">
               <img class="icon" src="/imgs/buy-comics-digital-comics.png" alt="">

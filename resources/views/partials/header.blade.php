@@ -62,3 +62,13 @@
         </nav>
     </div>
 </div>
+
+<!-- JUMBOTRON IMG -->
+<div class="box-jumbotron-img">
+    <img class="jumbotron-img" src="{{ asset('/imgs/jumbotron.jpg') }}" alt="">
+</div>
+<div class="container label-container">
+    <div class="box-label bg-blue d-inline-block">
+        <h3 class="m-0">CURRENT SERIES</h3>
+    </div>
+</div>
