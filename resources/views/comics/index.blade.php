@@ -1,12 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-
     <!-- MAIN CARDS -->
     <div class="container">
         <div class="d-flex row row-cols-6 g-4 pt-5">
             @foreach ($books as $book)
-                <a href="{{ route('comics.show', $book->id) }}"> {{--rendo tutto il div cliccabile--}}
+                <a href="{{ route('comics.show', $book->id) }}"> {{-- rendo tutto il div cliccabile --}}
                     <div class="card card-box">
                         <img src="{{ $book['thumb'] }}" alt="" class="card-img-top">
                         <div class="card-body">
@@ -15,6 +14,13 @@
                     </div>
                 </a>
             @endforeach
+        </div>
+    </div>
+
+    <!-- BUTTON CREATE -->
+    <div class="container">
+        <div class="card-body">
+            <a href="{{ route('comics.create', $book->id) }}" class="btn btn-warning">INSERISCI</a>
         </div>
     </div>
 
