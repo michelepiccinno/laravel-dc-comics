@@ -19,6 +19,14 @@
                     </div>
                 </div>
             </div>
+            <div class="card-body">
+                <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-warning">Modifica</a>
+                <form action="{{ route('comics.destroy', $comic->id) }}" method="POST" class="d-inline-block">
+                    @csrf
+                    @method('DELETE')
+                    <input type="submit" value="Cancella" class="btn btn-danger">
+                </form>
+            </div>
         </div>
     </div>
 @endsection
