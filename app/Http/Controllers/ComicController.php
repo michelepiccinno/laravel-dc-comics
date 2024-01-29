@@ -4,9 +4,31 @@ namespace App\Http\Controllers;
 
 use App\Models\Comic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ComicController extends Controller
 {
+
+  public function validation($data)
+  {
+    $validated = Validator::make($data, [
+      "title" => "required|min:5|max:50",
+      "description" => "required|max:1500",
+      "thumb" => "required|max:120",
+      "price" => "required",
+      "series" => "required|max:20",
+      "sale_date" => "required|date|max:20",
+      "type" => "required|min:1"
+    ], [
+      'title.required' => 'Non hai inserito il titolo',
+      'title.max' => 'Troppo lungo',
+      'title.min' => 'Troppo corto',
+      'type.min' => 'Non hai selezionato il tipo'
+    ])->validate();
+
+    return $validated;
+  }
+
   /*
   * stampa dati grezzi CON VAR_DUMP
   */
@@ -40,9 +62,9 @@ public function index() {
   /**
    * Show the form for creating a new resource.
    */
-  public function create()
+  public function create(Comic $book)
   {
-    return view("comics.create");
+    return view("comics.create", compact("book"));
   }
 
 
@@ -52,18 +74,18 @@ public function index() {
   public function store(Request $request)
   {
     $data = $request->all();
-
+    $dati_validati = $this->validation($data);
     $book = new Comic();
-
-    $book->title = $data['title'];
-    $book->description = $data['description'];
-    $book->thumb = $data['thumb'];
-    $book->price = $data['price'];
-    $book->series = $data['series'];
-    $book->sale_date = $data['sale_date'];
-    $book->type = $data['type'];
+    $book->fill($dati_validati);/*
+    $book->title = $dati_validati['title'];
+    $book->description = $dati_validati['description'];
+    $book->thumb = $dati_validati['thumb'];
+    $book->price = $dati_validati['price'];
+    $book->series = $dati_validati['series'];
+    $book->sale_date = $dati_validati['sale_date'];
+    $book->type = $dati_validati['type'];
+    $book->fill($dati_validati);                          in alternativa a quanto sopra*/
     $book->save();
-
 
     return redirect()->route('comics.show', $book->id);
   }
@@ -84,7 +106,8 @@ public function index() {
   public function update(Request $request, Comic $comic)
   {
     $data = $request->all();
-    $comic->update($data);
+    $dati_validati = $this->validation($data);
+    $comic->update($dati_validati);
     return redirect()->route('comics.show', $comic->id);
   }
 
