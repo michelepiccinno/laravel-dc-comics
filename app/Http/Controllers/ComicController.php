@@ -19,11 +19,6 @@ class ComicController extends Controller
       "series" => "required|max:20",
       "sale_date" => "required|date|max:20",
       "type" => "required|min:1"
-    ], [
-      'title.required' => 'Non hai inserito il titolo',
-      'title.max' => 'Troppo lungo',
-      'title.min' => 'Troppo corto',
-      'type.min' => 'Non hai selezionato il tipo'
     ])->validate();
 
     return $validated;

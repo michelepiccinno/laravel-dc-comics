@@ -30,26 +30,41 @@
                     <label for="description" class="form-label">description</label>
                     <input type="text" class="form-control @error('description') is-invalid @enderror" id="description"
                         name="description" value="{{ old('description') }}">
+                         @error('description')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="mb-3">
                     <label for="thumb" class="form-label">thumb</label>
                     <input type="text" class="form-control @error('thumb') is-invalid @enderror" id="thumb"
                         name="thumb" value="{{ old('thumb') }}">
+                         @error('thumb')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="mb-3">
                     <label for="price" class="form-label">price</label>
                     <input type="text" class="form-control @error('price') is-invalid @enderror" id="price"
                         name="price" value="{{ old('price') }}">
+                         @error('price')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="mb-3">
                     <label for="series" class="form-label">series</label>
                     <input type="text" class="form-control @error('series') is-invalid @enderror" id="series"
                         name="series" value="{{ old('series') }}">
+                         @error('series')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="mb-3">
                     <label for="sale_date" class="form-label">sale_date</label>
                     <input type="text" class="form-control @error('sale_date') is-invalid @enderror" id="sale_date"
                         name="sale_date" value="{{ old('sale_date') }}">
+                         @error('sale_date')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="mb-3">
