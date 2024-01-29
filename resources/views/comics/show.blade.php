@@ -24,7 +24,7 @@
                 <form action="{{ route('comics.destroy', $comic->id) }}" method="POST" class="d-inline-block">
                     @csrf
                     @method('DELETE')
-                    <input type="submit" value="Cancella" class="btn btn-danger">
+                    <input type="submit" value="Cancella" class="btn btn-danger" onclick="return confirm('Sei sicuro di voler cancellare questo fumetto?');">
                 </form>
             </div>
         </div>
