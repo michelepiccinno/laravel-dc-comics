@@ -78,6 +78,7 @@
                     @enderror
                 </div>
                 </div>
+                <a class="btn btn-secondary" href="{{ route('comics.show', $comic->id) }}">BACK TO DETAIL</a>
                 <button type="submit" class="btn btn-primary">Modifica</button>
             </form>
         </div>

@@ -18,7 +18,7 @@
 <div class="bg-white">
     <div class="container">
         <nav class="navbar navbar-down">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{{ route("home")}}">
                 <img class="logo-header" src="{{ asset('/imgs/dc-logo.png') }}" alt="DC LOGO" width="30"
                     height="24">
             </a>

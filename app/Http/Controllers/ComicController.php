@@ -33,7 +33,6 @@ public function index() {
   return view('home', compact("dati"));
 } */
 
-
   /**
    * Display a listing of the resource.
    */
@@ -78,8 +77,7 @@ public function index() {
     $book->price = $dati_validati['price'];
     $book->series = $dati_validati['series'];
     $book->sale_date = $dati_validati['sale_date'];
-    $book->type = $dati_validati['type'];
-    $book->fill($dati_validati);                          in alternativa a quanto sopra*/
+    $book->type = $dati_validati['type'];  in alternativa a quanto sopra*/
     $book->save();
 
     return redirect()->route('comics.show', $book->id);

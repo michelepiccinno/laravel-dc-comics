@@ -20,11 +20,13 @@
                 </div>
             </div>
             <div class="card-body">
+                <a class="btn btn-secondary" href="{{ route('home') }}">BACK TO HOME</a>
                 <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-warning">Modifica</a>
                 <form action="{{ route('comics.destroy', $comic->id) }}" method="POST" class="d-inline-block">
                     @csrf
                     @method('DELETE')
-                    <input type="submit" value="Cancella" class="btn btn-danger" onclick="return confirm('Sei sicuro di voler cancellare questo fumetto?');">
+                    <input type="submit" value="Cancella" class="btn btn-danger"
+                        onclick="return confirm('Sei sicuro di voler cancellare questo fumetto?');">
                 </form>
             </div>
         </div>
