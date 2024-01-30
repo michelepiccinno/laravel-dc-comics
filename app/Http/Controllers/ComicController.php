@@ -16,7 +16,7 @@ class ComicController extends Controller
       "description" => "required|max:1500",
       "thumb" => "required|max:120",
       "price" => "required",
-      "series" => "required|max:20",
+      "series" => "required|max:100",
       "sale_date" => "required|date|max:20",
       "type" => "required|min:1"
     ])->validate();

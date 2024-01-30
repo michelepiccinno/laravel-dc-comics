@@ -21,7 +21,9 @@
                 <div class="mb-3">
                     <label for="title" class="form-label">title</label>
                     <input type="text" class="form-control @error('title') is-invalid @enderror" id="title"
-                        name="title" value="{{ old('title') ?? $comic->title }}">
+                        name="title" value="{{ old('title') ?? $comic->title }}">  
+                        {{--in caso di edit con input vuoto va a pescare da DB anziche rimanere vuoto per evidenziare l'errore. Ipotesi alternativa:  (che non funziona se inserita in tutti i campi a causa probabilmente del old()--}}
+                        {{-- name="title" value="{{ $comic->title ? (old() ? old('title', false) : $comic->title ?? false) : ''}}"> --}}
                     @error('title')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -46,7 +48,7 @@
                     <label for="price" class="form-label">price</label>
                     <input type="text" class="form-control @error('price') is-invalid @enderror" id="price"
                         name="price" value="{{ old('price') ?? $comic->price }}">
-                    @error('title')
+                    @error('price')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
@@ -54,7 +56,7 @@
                     <label for="series" class="form-label">series</label>
                     <input type="text" class="form-control @error('series') is-invalid @enderror" id="series"
                         name="series" value="{{ old('series') ?? $comic->series }}">
-                    @error('title')
+                    @error('series')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
